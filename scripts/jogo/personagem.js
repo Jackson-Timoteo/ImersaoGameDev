@@ -1,8 +1,9 @@
 class Personagem extends Animacao{
-  constructor(matriz, imagem, x, largura, altura, larguraSprite,  alturaSripte){
-    super (matriz, imagem, x, largura, altura, larguraSprite,  alturaSripte)
+  constructor(matriz, imagem, x, variacaoY, largura, altura, larguraSprite,  alturaSripte){
+    super (matriz, imagem, x, variacaoY,  largura, altura, larguraSprite,  alturaSripte)
 
-    this.yInicial = height  - this.altura;
+    this.variacaoY = variacaoY
+    this.yInicial = height  - this.altura - 30;
     this.y = this.yInicial;
     this.velocidadePulo = 0;
     this.gravidade = 3;
@@ -21,17 +22,19 @@ class Personagem extends Animacao{
     }
 
       estaColedindo(inimigo){
+        const precisao = .7;
         const colisao = collideRectRect(
           this.x, 
           this.y, 
-          this.largura, 
-          this.altura, 
+          this.largura * precisao, 
+          this.altura * precisao, 
           inimigo.x, 
           inimigo.y,
-          inimigo.largura, 
-          inimigo.altura
-        );
+          inimigo.largura * precisao, 
+          inimigo.altura * precisao
+        )
 
         return colisao;
-    }
+    } 
+     
 }
