@@ -4,7 +4,13 @@ class Pontuacao{
     }
 
     exibe(){
+        textAlign(RIGHT)
+        fill("#fff")
         textSize(100);  
-        text(this.pontos, width - 100, 90);
+        text(parseInt(this.pontos), width - 100, 90);
+    }
+
+    addPonto(){
+        this.pontos = this.pontos + 0.2
     }
 }

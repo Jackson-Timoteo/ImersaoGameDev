@@ -3,6 +3,7 @@ let imagemPersonagem;
 let imagemInimigo;
 let imagemInimigoTroll;
 let imagemInimigoVoador;
+let imagemGameOver;
 let cenario;
 let somDoPulo;
 let somDoJogo;
@@ -108,6 +109,9 @@ function preload(){
   imagemInimigo = loadImage("imagens/inimigos/gotinha.png")
   imagemInimigoTroll = loadImage("imagens/inimigos/troll.png");
   imagemInimigoVoador = loadImage("imagens/inimigos/gotinha-voadora.png");
+  imagemGameOver = loadImage("imagens/assents/game-over.png");
+
+
   somDoJogo = loadSound("sons/trilha_jogo.mp3");
   somDoPulo = loadSound("sons/somPulo.mp3");
 }
@@ -143,6 +147,7 @@ function draw() {
   cenario.exibe();
   cenario.move();
   pontuacao.exibe()
+  pontuacao.addPonto()
   personagem.exibe();
   personagem.aplicaGravidade();
 
@@ -153,11 +158,10 @@ function draw() {
   
     
   if (personagem.estaColedindo(inimigo, inimigoTroll)){
-    console.log("colidiu")
+    image(imagemGameOver, width/2 - 200, height/3)
     noLoop()
   }
   
   })
   
 }
-
