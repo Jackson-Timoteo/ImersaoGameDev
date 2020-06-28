@@ -43,5 +43,5 @@ class Personagem extends Animacao{
 
         return colisao;
     } 
-     
+    
 }
