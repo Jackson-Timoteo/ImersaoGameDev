@@ -6,6 +6,7 @@ class Jogo{
     setup(){
         pontuacao = new Pontuacao ();
         cenario = new Cenario(imagemCenario, 2);
+        vida = new Vida(3, 3);
         
         personagem = new Personagem(matrizPersonagem, imagemPersonagem, 0, 30, 110, 135, 220, 270);
         const inimigo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 30,  52, 52, 104, 104, 10, 100);
@@ -29,10 +30,11 @@ class Jogo{
     draw(){
         cenario.exibe();
         cenario.move();
-        pontuacao.exibe()
-        pontuacao.addPonto()
+        pontuacao.exibe();
+        pontuacao.addPonto();
         personagem.exibe();
         personagem.aplicaGravidade();
+        vida.draw();
       
       const inimigo = inimigos[this.inimigoAtual];
       const inimigoVisivel = inimigo.x <- inimigo.largura;
