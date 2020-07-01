@@ -16,11 +16,12 @@ let inimigoTroll;
 let inimigoVoador;
 let pontuacao;
 let jogo;
-let cenaAtual = 'jogo';
+let cenaAtual = 'telaInicial';
 let cenas;
 let telaInicial;
 let botaoGerenciador;
 let vida;
+let fita;
 
 const matrizInimigo = [
   [0, 0],

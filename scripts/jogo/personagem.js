@@ -9,6 +9,7 @@ class Personagem extends Animacao{
     this.gravidade = 3;
     this.alturaDoPulo = -30;
     this.pulos = 0;
+    this.invencivel = false
   }
     pula() {
       if(this.pulos < 3){
@@ -27,8 +28,19 @@ class Personagem extends Animacao{
         this.pulos = 0
       }
     }
+      tornaInvencivel(){
+        this.invencivel = true
+        setTimeout(() => {
+          this.invencivel = false
+
+        }, 1000)
+      }
 
       estaColedindo(inimigo){
+        if(this.invencivel){
+          return false
+        }
+
         const precisao = .65;
         const colisao = collideRectRect(
           this.x, 
